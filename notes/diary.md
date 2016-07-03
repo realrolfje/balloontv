@@ -28,3 +28,5 @@ https://www.youtube.com/watch?v=i9WOwDrpRKs
 
 Check high-low tech for board manager links
 http://highlowtech.org/?p=1695
+
+In Arduino 1.6.9, the board URLs are in the settings. Add the URL there. Then go to the board manager and install the attiny manager. Select Board ATTiny, Processor AT85 and clock 8MHz from the Tools menu in the IDE. The bottom right of the screen should now read "ATTiny 24/45/85, ATTiny85, Internal 8MHz on /dev/..."
