@@ -30,3 +30,11 @@ Check high-low tech for board manager links
 http://highlowtech.org/?p=1695
 
 In Arduino 1.6.9, the board URLs are in the settings. Add the URL there. Then go to the board manager and install the attiny manager. Select Board ATTiny, Processor AT85 and clock 8MHz from the Tools menu in the IDE. The bottom right of the screen should now read "ATTiny 24/45/85, ATTiny85, Internal 8MHz on /dev/..."
+
+I2C library for ATtiny
+http://playground.arduino.cc/Code/USIi2c
+
+The I2C connections are pretty straight forward:
+    Arduino SDA <— 4.7k Resistor Tied to 5v —-> ATtiny 85 – PB0
+    Arduino SCL <— 4.7k Resistor Tied to 5v —-> ATtiny 85 – PB3
+    ATtiny 85 – PB1 <— 330 Resistor —- LED —- > GND
