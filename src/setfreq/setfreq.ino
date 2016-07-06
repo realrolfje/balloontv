@@ -43,22 +43,22 @@ void setup() {
   };
 
   /*
-   * Pseudo-code for calculating the devider (Devider MSB and LSB
+   * Pseudo-code for calculating the divider
    * 
-   * Ftx = Fcomp * 16 * devider
+   * Ftx = Fcomp * 16 * divider
    * Where Fcomp = 4MHz/512 = 7812,5 Hz
    * 
    * Which means: 
-   * devider = Ftx/(16 * Fcomp)
-   * devider = Ftx/(16 * 7812,5)
-   * devider = Ftx/(125.000)
+   * divider = Ftx/(16 * Fcomp)
+   * divider = Ftx/(16 * 7812,5)
+   * divider = Ftx/(125.000)
    * 
    * Example:
    * Ftx = 1275000 MHz
-   * devider = (1.275.000.000 / 125.000)
-   * devider = (1.275.000 / 125)
-   * devider = 10.200 (decimal)
-   * devider = 0010 0111 1101 1000 (binary)
+   * divider = (1.275.000.000 / 125.000)
+   * divider = (1.275.000 / 125)
+   * divider = 10.200 (decimal)
+   * divider = 0010 0111 1101 1000 (binary)
    * 
    */
 
@@ -67,11 +67,11 @@ void setup() {
    */
   TinyWireM.begin();                    // initialize I2C lib
   TinyWireM.beginTransmission(SP5055_W_ADDR);
-  TinyWireM.send(0x00);                 // Programmable Devider MSB
+  TinyWireM.send(0x00);                 // Programmable Divider MSB
                                         // bit 7: Always 0
                                         // bit 6 to 0: 2^14 to 2^8
                                         
-  TinyWireM.send(0x00);                 // Programmable Devider LSB
+  TinyWireM.send(0x00);                 // Programmable Divider LSB
                                         // bit 7 to 0: 2^7 to 2^0
 
   TinyWireM.send(0x10001110);           // Charge pump and test bits.
@@ -104,8 +104,6 @@ void setup() {
                                         // bit 0: P0
   
   TinyWireM.endTransmission();          // Send to the slave
-
-
 }
 
 void loop() {
