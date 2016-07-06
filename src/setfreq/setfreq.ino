@@ -43,6 +43,26 @@ void setup() {
   };
 
   /*
+   * Pseudo-code for calculating the devider (Devider MSB and LSB
+   * 
+   * Ftx = Fcomp * 16 * devider
+   * Where Fcomp = 4MHz/512 = 7812,5 Hz
+   * 
+   * Which means: 
+   * devider = Ftx/(16 * Fcomp)
+   * devider = Ftx/(16 * 7812,5)
+   * devider = Ftx/(125.000)
+   * 
+   * Example:
+   * Ftx = 1275000 MHz
+   * devider = (1.275.000.000 / 125.000)
+   * devider = (1.275.000 / 125)
+   * devider = 10.200 (decimal)
+   * devider = 0010 0111 1101 1000 (binary)
+   * 
+   */
+
+  /*
    * Code for sending stuff over i2c. Draft.
    */
   TinyWireM.begin();                    // initialize I2C lib
