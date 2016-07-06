@@ -13,6 +13,18 @@
  *                          +----+
  *
  */
+
+#include <TinyWireM.h>                  // I2C Master lib for ATTinys which use USI
+
+// See datasheets/SP5055.PDF, table 4 and table 1.
+// 00 : 0V to 0,2V
+// 01 : Always valid (don't know what this means in the datasheet)
+// 10 : 0,3V to 0,7V
+// 11 : 0,8V to 13,2V
+//                   `--------vv
+#define SP5055_W_ADDR   B11000110
+#define SP5055_R_ADDR   B11000111
+ 
 int ledPin = 1; // D1
 
 void setup() {
@@ -23,15 +35,57 @@ void setup() {
    * temperature stability of the ATtiny85
    * at -20 C.
    */
-  
   while (true) {
     digitalWrite(ledPin, HIGH);
     delay(10);
     digitalWrite(ledPin, LOW);
     delay(10);
   };
+
+  /*
+   * Code for sending stuff over i2c. Draft.
+   */
+  TinyWireM.begin();                    // initialize I2C lib
+  TinyWireM.beginTransmission(SP5055_W_ADDR);
+  TinyWireM.send(0x00);                 // Programmable Devider MSB
+                                        // bit 7: Always 0
+                                        // bit 6 to 0: 2^14 to 2^8
+                                        
+  TinyWireM.send(0x00);                 // Programmable Devider LSB
+                                        // bit 7 to 0: 2^7 to 2^0
+
+  TinyWireM.send(0x10001110);           // Charge pump and test bits.
+                                        // bit 7: Always 1
+                                        // bit 6: CP, Charge pump: 
+                                        //        0 = 50uA
+                                        //        1 = 170uA
+                                        // bit 5: T1 test mode bit,
+                                        //        0 = normal mode
+                                        //        1 = test mode, connects Fcomp to P6 
+                                        //            and Fdiv to P7.
+                                        // bit 4: T0 test mode bit,
+                                        //        0 = normal mode
+                                        //        1 = disable charge pump
+                                        // bit 3: Always 1
+                                        // bit 2: Always 1
+                                        // bit 1: Always 1
+                                        // bit 0: OS, Varactor drive disable switch
+                                        //        0 = normal mode
+                                        //        1 = Disable charge pump drive amplifier
   
-  // put your setup code here, to run once:
+  TinyWireM.send(0x00);                 // I/O port control bits (blinkin' lights)
+                                        // bit 7: P7
+                                        // bit 6: P6
+                                        // bit 5: P5
+                                        // bit 4: P4
+                                        // bit 3: P3
+                                        // bit 2: don't care
+                                        // bit 1: don't care
+                                        // bit 0: P0
+  
+  TinyWireM.endTransmission();          // Send to the slave
+
+
 }
 
 void loop() {

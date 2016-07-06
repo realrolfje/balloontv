@@ -1,7 +1,9 @@
 # Timeline
-28 June project started
+28 June project started, uploaded to github on https://github.com/realrolfje/balloontv
 29 June Randy orders 23cm ATV transmitter
 2 July IC selection based on weight, power usage, I2C capabilities and termperature stability. Ordered ATTiny45 and 85 in normal and SMD packages.
+5 July Configured Arduino IDE with board info from highlowtech, found pin mappings (what is connected to what), created Sketch with square wave on pin 6 (D1) to measure temperature stability in the freezer when the ICs are delivered.
+6 july 
 
 
 # Notes
