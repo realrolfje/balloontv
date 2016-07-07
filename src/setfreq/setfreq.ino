@@ -54,7 +54,7 @@ void setup() {
    * divider = Ftx/(125.000)
    * 
    * Example:
-   * Ftx = 1275000 MHz
+   * Ftx = 1275 MHz
    * divider = (1.275.000.000 / 125.000)
    * divider = (1.275.000 / 125)
    * divider = 10.200 (decimal)
@@ -62,16 +62,22 @@ void setup() {
    * 
    */
 
+  long ftx = 1275000000;
+  long divider = ftx / 125000;
+
+  byte dividerLSB = (byte) divider;
+  byte dividerMSB = (byte) (divider >> 8);
+
   /*
    * Code for sending stuff over i2c. Draft.
    */
   TinyWireM.begin();                    // initialize I2C lib
   TinyWireM.beginTransmission(SP5055_W_ADDR);
-  TinyWireM.send(0x00);                 // Programmable Divider MSB
+  TinyWireM.send(dividerMSB);                 // Programmable Divider MSB
                                         // bit 7: Always 0
                                         // bit 6 to 0: 2^14 to 2^8
                                         
-  TinyWireM.send(0x00);                 // Programmable Divider LSB
+  TinyWireM.send(dividerLSB);                 // Programmable Divider LSB
                                         // bit 7 to 0: 2^7 to 2^0
 
   TinyWireM.send(0x10001110);           // Charge pump and test bits.
