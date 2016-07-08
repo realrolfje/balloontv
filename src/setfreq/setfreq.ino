@@ -11,6 +11,19 @@
  *         Ain2 (D 4) PB4  3|    |6  PB1 (D 1) pwm1
  *                    GND  4|    |5  PB0 (D 0) pwm0 SDA
  *                          +----+
+ * 
+ * Supported ATtiny commands:
+ * pinMode()
+ * digitalWrite()
+ * digitalRead()
+ * analogRead()
+ * analogWrite()
+ * shiftOut()
+ * pulseIn()
+ * millis()
+ * micros()
+ * delay()
+ * delayMicroseconds()
  *
  */
 
@@ -25,11 +38,22 @@
 #define SP5055_W_ADDR   B11000110
 #define SP5055_R_ADDR   B11000111
  
-int ledPin = 1; // D1
+int ledPin = 4; // D4 (pin 3)
 
 void setup() {
   pinMode(ledPin, OUTPUT);
+  TinyWireM.begin();                    // initialize I2C lib
+}
 
+void loop() {
+  digitalWrite(ledPin, HIGH);
+  setFrequency(1275000000);
+  digitalWrite(ledPin, LOW);
+
+  delay(500);
+}
+
+void squarewave() {  
   /* 
    * Flip pin. For testing the programmer and
    * temperature stability of the ATtiny85
@@ -37,11 +61,13 @@ void setup() {
    */
   while (true) {
     digitalWrite(ledPin, HIGH);
-    delay(10);
+    delay(1);
     digitalWrite(ledPin, LOW);
-    delay(10);
+    delay(1);
   };
+}
 
+void setFrequency(long ftx) {
   /*
    * Pseudo-code for calculating the divider
    * 
@@ -62,22 +88,21 @@ void setup() {
    * 
    */
 
-  long ftx = 1275000000;
   long divider = ftx / 125000;
 
   byte dividerLSB = (byte) divider;
   byte dividerMSB = (byte) (divider >> 8);
 
   /*
-   * Code for sending stuff over i2c. Draft.
+   * Code for sending stuff over i2c to the SP5055. Draft.
    */
-  TinyWireM.begin();                    // initialize I2C lib
-  TinyWireM.beginTransmission(SP5055_W_ADDR);
-  TinyWireM.send(dividerMSB);                 // Programmable Divider MSB
+  TinyWireM.beginTransmission(SP5055_W_ADDR); // Address SP5055.
+  
+  TinyWireM.send(dividerMSB);           // Programmable Divider MSB
                                         // bit 7: Always 0
                                         // bit 6 to 0: 2^14 to 2^8
                                         
-  TinyWireM.send(dividerLSB);                 // Programmable Divider LSB
+  TinyWireM.send(dividerLSB);           // Programmable Divider LSB
                                         // bit 7 to 0: 2^7 to 2^0
 
   TinyWireM.send(0x10001110);           // Charge pump and test bits.
@@ -112,9 +137,4 @@ void setup() {
   TinyWireM.endTransmission();          // Send to the slave
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
 
-  
-
-}

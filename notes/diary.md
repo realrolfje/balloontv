@@ -8,7 +8,15 @@
   temperature stability in the freezer when the ICs are delivered.
 - 6 july Added I2C library, added code for programming the SP5055, and some pseudo
   code to calculate the divider.
-
+- 7 july Tested the ATTiny 45 (8 pin DIL housing, 8MHz) for temperature stability. Code
+  for flipping a pin every 1 mS, produces aa square wave.
+  At room temperature: 525,0 Hz (with some jitter)
+  After 45 minutes without power in a freezer, at -20 C: 515,2 Hz (with jitter, 4% slower).
+  After 20 minutes under power in the freezer, back up to 516 Hz.
+  After 4 more minutes under power in the freezer, back up to 517 Hz.
+  Conclusion: Temperature instability will likely not be a problem in this application.
+- 8 july I2C code added, screenshot of the oscilloscope showing data being transmitted,
+  looking good so far.
 
 # Notes
 
