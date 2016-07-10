@@ -38,10 +38,14 @@
 #define SP5055_W_ADDR   B11000110
 #define SP5055_R_ADDR   B11000111
  
-int ledPin = 4; // D4 (pin 3)
+const int ledPin = 4; // D4 (pin 3)
+const int audioPin = 3; // D3 (pin 2)
+
+
 
 void setup() {
   pinMode(ledPin, OUTPUT);
+  pinMode(audioPin, OUTPUT);
   TinyWireM.begin();                    // initialize I2C lib
 }
 
@@ -50,7 +54,46 @@ void loop() {
   setFrequency(1275000000);
   digitalWrite(ledPin, LOW);
 
-  delay(500);
+//  digitalWrite(audioPin, HIGH);
+//  delay(100);
+//  digitalWrite(audioPin, LOW);
+
+//  cwSendCharacter(0B10000100);
+  //cwSendText();
+  cwSendCharacter(0B01100100); // P
+  cwSendCharacter(0B00000010); // I
+  cwSendCharacter(0B00001101); // 4
+  cwSendCharacter(0B01000011); // R
+  cwSendCharacter(0B10100100); // C
+  cwSendCharacter(0B11000011); // G
+  delay(400);
+  cwSendCharacter(0B01100011); // W
+  cwSendCharacter(0B01100011); // W
+  cwSendCharacter(0B01100011); // W
+  delay(400);
+  cwSendCharacter(0B10000100); // B
+  cwSendCharacter(0B01000010); // A
+  cwSendCharacter(0B01000100); // L
+  cwSendCharacter(0B01000100); // L
+  cwSendCharacter(0B11100011); // O
+  cwSendCharacter(0B10000010); // N
+  cwSendCharacter(0B00010100); // V
+  cwSendCharacter(0B11100011); // O
+  cwSendCharacter(0B00000011); // S
+  cwSendCharacter(0B00000011); // S
+  cwSendCharacter(0B00000001); // E
+  cwSendCharacter(0B01110100); // J
+  cwSendCharacter(0B01000010); // A
+  cwSendCharacter(0B10100100); // C
+  cwSendCharacter(0B00000100); // H
+  cwSendCharacter(0B10000001); // T
+  delay(400);
+  cwSendCharacter(0B10000010); // N
+  cwSendCharacter(0B01000100); // L
+  delay(800);
+  
+  
+
 }
 
 void squarewave() {  

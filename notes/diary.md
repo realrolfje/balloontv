@@ -17,6 +17,10 @@
   Conclusion: Temperature instability will likely not be a problem in this application.
 - 8 july I2C code added, screenshot of the oscilloscope showing data being transmitted,
   looking good so far.
+- 10 july Added CW sounder on pin 1. Problem: Long strings don't fit the program memory.
+  When using the original idea to do cwSendText("SOME TEXT HERE"), the program crashes,
+  not producing sound or I2C. Sending all characters as separate cwSendCharacter(0B01100100);
+  calls works. Although the current workaround works, it is not very neat code.
 
 # Notes
 
