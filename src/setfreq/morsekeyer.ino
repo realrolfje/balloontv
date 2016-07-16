@@ -1,68 +1,93 @@
 
 const int ditperiods = 40;
 
+char CWCHARS[] =  // Index Char ASCII  CW   length
+    {0B10010101,  //   0    /    47   -..-.   5
+     0B11111101,  //   1    0    48   -----   5
+     0B01111101,  //   2    1    49   .----   5
+     0B00111101,  //   3    2    50   ..---   5
+     0B00011101,  //   4    3    51   ...--   5
+     0B00001101,  //   5    4    52   ....-   5
+     0B00000101,  //   6    5    53   .....   5
+     0B10000101,  //   7    6    54   -....   5
+     0B11000101,  //   8    7    55   --...   5
+     0B11100101,  //   9    8    56   ---..   5
+     0B11110101,  //  10    9    57   ----.   5
+     0B10001101,  //  11    =    61   -...-   5
+     0B01000010,  //  12    A    65   .-      2
+     0B10000100,  //  13    B    66   -...    4 
+     0B10100100,  //  14    C    67   -.-.    4
+     0B10000100,  //  15    D    68   -..     3
+     0B00000001,  //  16    E    69   .       1
+     0B00100100,  //  17    F    70   ..-.    4
+     0B11000011,  //  18    G    71   --.     3
+     0B00000100,  //  19    H    72   ....    4
+     0B00000010,  //  20    I    73   ..      2
+     0B01110100,  //  21    J    74   .---    4
+     0B10100011,  //  22    K    75   -.-     3
+     0B01000100,  //  23    L    76   .-..    4
+     0B11000010,  //  24    M    77   --      2
+     0B10000010,  //  25    N    78   -.      2
+     0B11100011,  //  26    O    79   ---     3
+     0B01100100,  //  27    P    80   .--.    4
+     0B11010100,  //  28    Q    81   --.-    4
+     0B01000011,  //  29    R    82   .-.     3
+     0B00000011,  //  30    S    83   ...     3
+     0B10000001,  //  31    T    84   -       1
+     0B00100011,  //  32    U    85   ..-     3
+     0B00010100,  //  33    V    86   ...-    4
+     0B01100011,  //  34    W    87   .--     3
+     0B10010100,  //  35    X    88   -..-    4
+     0B10110100,  //  36    Y    89   -.--    4
+     0B11000100}; //  37    Z    90   --..    4
+
+
 void cwSendText() {
   for (int i = 0; i < CWTEXT.length(); i++) {
-    byte character = 0;
-    switch (CWTEXT.charAt(i)) {
-      // One byte CW characters:
-      // number of dots/dashes -,
-      // 1 = dash, 0 = dot     vvv
-      //                  vvvvv
-      case 'A': character = 0B01000010; break; // .-    length 2
-      case 'B': character = 0B10000100; break; // -...  length 4 
-      case 'C': character = 0B10100100; break; // -.-.  length 4
-      case 'D': character = 0B10000100; break; // -..   length 3
-      case 'E': character = 0B00000001; break; // .     length 1
-      case 'F': character = 0B00100100; break; // ..-.  length 4
-      case 'G': character = 0B11000011; break; // --.   length 3
-      case 'H': character = 0B00000100; break; // ....  length 4
-      case 'I': character = 0B00000010; break; // ..    length 2
-      case 'J': character = 0B01110100; break; // .---  length 4
-      case 'K': character = 0B10100011; break; // -.-   length 3
-      case 'L': character = 0B01000100; break; // .-..  length 4
-      case 'M': character = 0B11000010; break; // --    length 2
-      case 'N': character = 0B10000010; break; // -.    length 2
-      case 'O': character = 0B11100011; break; // ---   length 3
-      case 'P': character = 0B01100100; break; // .--.  length 4
-      case 'Q': character = 0B11010100; break; // --.-  length 4
-      case 'R': character = 0B01000011; break; // .-.   length 3
-      case 'S': character = 0B00000011; break; // ...   length 3
-      case 'T': character = 0B10000001; break; // -     length 1
-      case 'U': character = 0B00100011; break; // ..-   length 3
-      case 'V': character = 0B00010100; break; // ...-  length 4
-      case 'W': character = 0B01100011; break; // .--   length 3
-      case 'X': character = 0B10010100; break; // -..-  length 4
-      case 'Y': character = 0B10110100; break; // -.--  length 4
-      case 'Z': character = 0B11000100; break; // --..  length 4
-      case '0': character = 0B11111101; break; // ----- length 5
-      case '1': character = 0B01111101; break; // .---- length 5
-      case '2': character = 0B00111101; break; // ..--- length 5
-      case '3': character = 0B00011101; break; // ...-- length 5
-      case '4': character = 0B00001101; break; // ....- length 5
-      case '5': character = 0B00000101; break; // ..... length 5
-      case '6': character = 0B10000101; break; // -.... length 5
-      case '7': character = 0B11000101; break; // --... length 5
-      case '8': character = 0B11100101; break; // ---.. length 5
-      case '9': character = 0B11110101; break; // ----. length 5
-      case '/': character = 0B10010101; break; // -..-. length 5
-      case ' ': character = 0B00000000; break; // adds extra dah of silence
-    } // switch
-    cwSendCharacter(character);
-  } // for
+    cwSendCharacter(CWTEXT.charAt(i));
+  }
 }
 
-void cwSendCharacter(byte character){
-  byte nrsymbols = character & 0B00000111;  
+void cwSendCharacter(byte character) {
+  // Determine the CW character to send from the lookup table
+  byte cw = 0;
+  if (character >= (byte) '/' && character <= (byte) '9') {
+    cw = CWCHARS[character - (byte) '/'];
+  } else if (character >= (byte) 'A' && character <= (byte) 'Z') {
+    cw = CWCHARS[character - (byte) 'A' + 12];
+  } else if (character == (byte) '=') {
+    cw = CWCHARS[character - (byte) '=' + 11];
+  } else if (character == (byte) '.') {
+    // Period is 6 symbols so does not fit a byte
+    cwSound (1, true);
+    cwSound (3, true);
+    cwSound (1, true);
+    cwSound (3, true);
+    cwSound (1, true);
+    cwSound (3, true);
+  } else {
+    // Space or any unrecognized char, silence.
+    cwSound(4, false);
+    return;
+  }
+
+  // Send the character from the CW table.
+  byte nrsymbols = cw & 0B00000111;  
   while (nrsymbols > 0) {
-    byte dits = (character & 0B10000000) > 0 ? 3 : 1;
+    byte dits = (cw & 0B10000000) > 0 ? 3 : 1;
     cwSound (dits, true);
-    character = character << 1;
+    cw = cw << 1;
     nrsymbols--;
   }
-  cwSound(3,false); // space is one dah
+  cwSound(3,false); // space between characters is one dah
 }
 
+/*
+ * Sends sound for the number of dits + 1, or silence.
+ * 
+ * cwSound(1,false); // No sound, duration 1 dit.
+ * cwSound(2,true);  // 1 dit sound, + 1 dit silence.
+ */
 void cwSound(int dits, boolean on) {
   int periodcounter = ditperiods * dits;
   while (periodcounter > 0) {

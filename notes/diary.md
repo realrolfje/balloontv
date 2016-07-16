@@ -21,6 +21,9 @@
   When using the original idea to do cwSendText("SOME TEXT HERE"), the program crashes,
   not producing sound or I2C. Sending all characters as separate cwSendCharacter(0B01100100);
   calls works. Although the current workaround works, it is not very neat code.
+- 17 july Tighter code with lookup table for CW sending, uses slightly less memory.
+  I2C + Long CW text working on SMD ATTiny85 (has more memory). Needs testing with the
+  ATV transmitter and final tweaks and assembly. Looks like it can be inline programmed.
 
 # Notes
 
