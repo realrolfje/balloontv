@@ -41,7 +41,7 @@
 const int ledPin   = 4; // D4 (pin 3)
 const int audioPin = 3; // D3 (pin 2)
 
-String CWTEXT = "PI4RCG = WWW.BALLONVOSSENJACHT.NL = ";
+String CWTEXT = "PI4RCG = WWW.BALLONVOSSENJACHT.NL";
 
 void setup() {
   pinMode(ledPin, OUTPUT);
