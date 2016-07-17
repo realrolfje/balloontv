@@ -24,6 +24,11 @@
 - 17 july Tighter code with lookup table for CW sending, uses slightly less memory.
   I2C + Long CW text working on SMD ATTiny85 (has more memory). Needs testing with the
   ATV transmitter and final tweaks and assembly. Looks like it can be inline programmed.
+  Found a link to http://nootropicdesign.com/projectlab/2011/03/20/text-and-graphics-overlay/
+  for video overlay.
+  http://electronics-home-projects.tripod.com/
+  
+
 
 # Notes
 
