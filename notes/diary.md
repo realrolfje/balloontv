@@ -27,6 +27,13 @@
   Found a link to http://nootropicdesign.com/projectlab/2011/03/20/text-and-graphics-overlay/
   for video overlay.
   http://electronics-home-projects.tripod.com/
+- 28 july Analyzed the I2C data on the commtech board. Does not look anything like I
+  expected to see based on the SP5055 datasheet. Spoke to people who have experience with
+  this board, and the mention that it also sends display data over I2C, which explaines the
+  strange bytes I see.
+- 31 july Fixed a few bugs in the code, burned it to the tiny and hooked it up to the
+  SP5055 in the transmitter. Works like a charm. Next up: Couple the Audio for the CW
+  into the left and right audio channels. Need to figure out what the level needs to be.
   
 
 

@@ -29,14 +29,17 @@
 
 #include <TinyWireM.h>                  // I2C Master lib for ATTinys which use USI
 
+// The TinyWire library uses the lower 7 bits in the address byte, 
+// shifts them left and adds a 1 for write and 0 for read. See line 46 of TinyWireM.cpp.
+// 
+// The address of the SP055 is 1100 0010 for write, 
 // See datasheets/SP5055.PDF, table 4 and table 1.
 // 00 : 0V to 0,2V
 // 01 : Always valid (don't know what this means in the datasheet)
 // 10 : 0,3V to 0,7V
 // 11 : 0,8V to 13,2V
-//                   `--------vv
-#define SP5055_W_ADDR   B11000110
-#define SP5055_R_ADDR   B11000111
+//                   `-------vv
+#define SP5055_ADDR   B01100001  // 0xC2 >> 1
  
 const int ledPin   = 4; // D4 (pin 3)
 const int audioPin = 3; // D3 (pin 2)
@@ -51,10 +54,10 @@ void setup() {
 
 void loop() {
   digitalWrite(ledPin, HIGH);
-  setFrequency(1275000000);
+  setFrequency(1252000000L);
   digitalWrite(ledPin, LOW);
-  delay(5000);  
-  cwSendText();
+  delay(1000);  
+//  cwSendText();
 }
 
 void squarewave() {  
@@ -71,7 +74,7 @@ void squarewave() {
   };
 }
 
-void setFrequency(long ftx) {
+void setFrequency(unsigned long ftx) {
   /*
    * Pseudo-code for calculating the divider
    * 
@@ -84,15 +87,16 @@ void setFrequency(long ftx) {
    * divider = Ftx/(125.000)
    * 
    * Example:
-   * Ftx = 1275 MHz
-   * divider = (1.275.000.000 / 125.000)
-   * divider = (1.275.000 / 125)
-   * divider = 10.200 (decimal)
-   * divider = 0010 0111 1101 1000 (binary)
+   * Ftx = 1252 MHz
+   * divider = (1.252.000.000 / 125.000)
+   * divider = (1.252.000 / 125)
+   * divider = 10.016 (decimal)
+   * divider = 0010 0111 0010 0000 (binary)
+   *              2    7   2    0
    * 
    */
 
-  long divider = ftx / 125000;
+  unsigned long divider = ftx / 125000;
 
   byte dividerLSB = (byte) divider;
   byte dividerMSB = (byte) (divider >> 8);
@@ -100,7 +104,7 @@ void setFrequency(long ftx) {
   /*
    * Code for sending stuff over i2c to the SP5055. Draft.
    */
-  TinyWireM.beginTransmission(SP5055_W_ADDR); // Address SP5055.
+  TinyWireM.beginTransmission(SP5055_ADDR); // Address SP5055.
   
   TinyWireM.send(dividerMSB);           // Programmable Divider MSB
                                         // bit 7: Always 0
@@ -109,7 +113,7 @@ void setFrequency(long ftx) {
   TinyWireM.send(dividerLSB);           // Programmable Divider LSB
                                         // bit 7 to 0: 2^7 to 2^0
 
-  TinyWireM.send(0x10001110);           // Charge pump and test bits.
+  TinyWireM.send(B10001110);           // Charge pump and test bits.
                                         // bit 7: Always 1
                                         // bit 6: CP, Charge pump: 
                                         //        0 = 50uA
@@ -128,7 +132,7 @@ void setFrequency(long ftx) {
                                         //        0 = normal mode
                                         //        1 = Disable charge pump drive amplifier
   
-  TinyWireM.send(0x00);                 // I/O port control bits (blinkin' lights)
+  TinyWireM.send(B00000000);            // I/O port control bits (blinkin' lights)
                                         // bit 7: P7
                                         // bit 6: P6
                                         // bit 5: P5
