@@ -1,4 +1,8 @@
-# Timeline
+The project diary
+=================
+
+A list of funny notes and events of what happens on the project:
+
 - 28 June project started, uploaded to github on https://github.com/realrolfje/balloontv
 - 29 June Randy orders 23cm ATV transmitter
 - 2 July IC selection based on weight, power usage, I2C capabilities and termperature
