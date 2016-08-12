@@ -29,6 +29,8 @@
 
 #include <TinyWireM.h>                  // I2C Master lib for ATTinys which use USI
 
+#include <avr/pgmspace.h>
+
 // The TinyWire library uses the lower 7 bits in the address byte, 
 // shifts them left and adds a 1 for write and 0 for read. See line 46 of TinyWireM.cpp.
 // 
@@ -44,7 +46,7 @@
 const int ledPin   = 4; // D4 (pin 3)
 const int audioPin = 3; // D3 (pin 2)
 
-String CWTEXT = "PI4RCG = WWW.BALLONVOSSENJACHT.NL";
+const char PROGMEM CWTEXT[] = "PI4RCG = WWW.BALLONVOSSENJACHT.NL";
 
 void setup() {
   pinMode(ledPin, OUTPUT);
