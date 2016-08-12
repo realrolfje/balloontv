@@ -1,7 +1,10 @@
 
+#include <avr/pgmspace.h>
+
 const int ditperiods = 40;
 
-char CWCHARS[] =  // Index Char ASCII  CW   length
+const char PROGMEM CWCHARS[] =  
+                  // Index Char ASCII  CW   length
     {0B10010101,  //   0    /    47   -..-.   5
      0B11111101,  //   1    0    48   -----   5
      0B01111101,  //   2    1    49   .----   5
@@ -51,12 +54,16 @@ void cwSendText() {
 void cwSendCharacter(byte character) {
   // Determine the CW character to send from the lookup table
   byte cw = 0;
+  uint8_t idx = 0 ;
   if (character >= (byte) '/' && character <= (byte) '9') {
-    cw = CWCHARS[character - (byte) '/'];
+//    cw = CWCHARS[character - (byte) '/'];
+    idx = character - (byte) '/' ;
   } else if (character >= (byte) 'A' && character <= (byte) 'Z') {
-    cw = CWCHARS[character - (byte) 'A' + 12];
+//    cw = CWCHARS[character - (byte) 'A' + 12];
+    idx = character - (byte) 'A' + 12 ;
   } else if (character == (byte) '=') {
-    cw = CWCHARS[character - (byte) '=' + 11];
+//    cw = CWCHARS[character - (byte) '=' + 11];
+    idx = character - (byte) '=' + 11 ;
   } else if (character == (byte) '.') {
     // Period is 6 symbols so does not fit a byte
     cwSound (1, true);
@@ -65,11 +72,14 @@ void cwSendCharacter(byte character) {
     cwSound (3, true);
     cwSound (1, true);
     cwSound (3, true);
+    // fall-trough? TODO: document or fix.
   } else {
     // Space or any unrecognized char, silence.
     cwSound(4, false);
     return;
   }
+
+  cw = pgm_read_byte( CWCHARS[idx] );
 
   // Send the character from the CW table.
   byte nrsymbols = cw & 0B00000111;  

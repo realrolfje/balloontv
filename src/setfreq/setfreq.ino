@@ -57,7 +57,7 @@ void loop() {
   setFrequency(1252000000L);
   digitalWrite(ledPin, LOW);
   delay(1000);  
-//  cwSendText();
+  cwSendText();
 }
 
 void squarewave() {  
