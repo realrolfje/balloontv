@@ -46,8 +46,14 @@ const char PROGMEM CWCHARS[] =
 
 
 void cwSendText() {
-  for (int i = 0; i < CWTEXT.length(); i++) {
-    cwSendCharacter(CWTEXT.charAt(i));
+  const char *p = CWTEXT ;
+  
+  uint8_t ch ;
+  ch = pgm_read_byte( *p );
+  while( ch ) {
+    cwSendCharacter( ch );
+    p++ ;
+    ch = pgm_read_byte( *p );
   }
 }
 
