@@ -50,11 +50,11 @@ void cwSendText()
   const char *p = CWTEXT ;
   
   uint8_t ch ;
-  ch = pgm_read_byte( *p );
+  ch = pgm_read_byte( p );
   while( ch ) {
     cwSendCharacter( ch );
     p++ ;
-    ch = pgm_read_byte( *p );
+    ch = pgm_read_byte( p );
   }
 }
 
@@ -85,7 +85,7 @@ void cwSendCharacter(byte character)
     return;
   }
 
-  byte cw = pgm_read_byte( CWCHARS[idx] );
+  byte cw = pgm_read_byte( &CWCHARS[idx] );
 
   // Send the character from the CW table.
   byte nrsymbols = cw & 0B00000111;  
