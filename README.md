@@ -32,5 +32,8 @@ Ideas and nice to haves (expected to be implemented for the 2017 version of the 
 - [ ] Temperature inside/outside as text overlay. I2C temperature sensor.
 - [ ] Add the audio of the voice transponder in the balloon to the audio channels of
       the video.
+      
+And here's a motivational image of the I2C communication between the ATTiny and the
+SP5055:
 
 ![I2C communication](documentation/images/I2C-communcation.jpg)
