@@ -1,16 +1,16 @@
 Building the Balloon TV project
 ===============================
 
-If you have a commtech TV transmitter and an AT-Tiny 85 and want to build this project,
+If you have a commtech TV transmitter and an ATTiny 85 and want to build this project,
 this document has everything you need.
 
 Prerequisites
 -------------
 - A [Commtech TV transmitter](datasheets/Comtech_FM2400TSIM.pdf)
 - [Arduino IDO 1.6.9](https://www.arduino.cc/en/Main/Software) with the
-  [I2C library for ATtiny](http://playground.arduino.cc/Code/USIi2c) installed in the
+  [I2C library for ATTiny](http://playground.arduino.cc/Code/USIi2c) installed in the
   libraries folder.
-- An [AT Tiny](datasheets/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
+- An [ATTiny](datasheets/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
 - An [Arduino UNO or Nano](https://www.arduino.cc/en/Main/GenuinoProducts) (for some reason
   called "Genuino" by the Europe company branch, but don't worry, everybody calls it Arduino
   and that will likely not change.
@@ -20,7 +20,7 @@ Preparing your Arduino IDE
 Install ITTiny library into Arduino IDE. Information from 
 [the highlowtech blog](http://highlowtech.org/?p=1695):
 
-In Arduino 1.6.4, you can install the ATtiny support using the built-in boards manager.
+In Arduino 1.6.4, you can install the ATTiny support using the built-in boards manager.
 
 1. Open the preferences dialog in the Arduino software.
 2. Find the “Additional Boards Manager URLs” field near the bottom of the dialog.
@@ -30,17 +30,17 @@ In Arduino 1.6.4, you can install the ATtiny support using the built-in boards m
 4. Click the OK button to save your updated preferences.
 5. Open the boards manager in the “Tools > Board” menu.
    ![boards-manager-menu](images/boards-manager-menu.png)
-6. Scroll to the bottom of the list; you should see an entry for “ATtiny”.
+6. Scroll to the bottom of the list; you should see an entry for “ATTiny”.
    ![boards-manager](images/boards-manager.png)
-7. Click on the ATtiny entry. An install button should appear. Click the install button.
+7. Click on the ATTiny entry. An install button should appear. Click the install button.
    ![boards-manager-install](images/boards-manager-install.png)
-8. The word “installed” should now appear next to the title of the ATtiny entry.
+8. The word “installed” should now appear next to the title of the ATTiny entry.
    ![boards-manager-installed](images/boards-manager-installed.png)
-9. Close the boards manager. You should now see an entry for ATtiny in the “Tools > Board” menu.
-   ![ATtiny Arduino 1.6](images/ATtiny-Arduino-1.6.png)
+9. Close the boards manager. You should now see an entry for ATTiny in the “Tools > Board” menu.
+   ![ATTiny Arduino 1.6](images/ATtiny-Arduino-1.6.png)
    
 The code of this project uses I2C to talk to the SP5055 in the CommTech transmitter. Please
-install The [I2C library for ATtiny](http://playground.arduino.cc/Code/USIi2c) to get this
+install The [I2C library for ATTiny](http://playground.arduino.cc/Code/USIi2c) to get this
 working.
 
 Preparing the Arduino UNO
@@ -62,7 +62,7 @@ Select the items in the Tools > Board and Serial Port menus that correspond to t
 you are using as the programmer (not the board being programmed). Upload the ArduinoISP
 sketch.
 
-Preparing the AT Tiny
+Preparing the ATTiny
 ---------------------
 To turn the ATTiny into an Arduino, upload the bootloader to it.
 
@@ -72,7 +72,7 @@ To turn the ATTiny into an Arduino, upload the bootloader to it.
 2. Select "Arduino as ISP" in the Tools > Programmer menu.
 3. Select Tools > “Burn Bootloader” command from the Tools menu.
 
-Check for error messages. Your AT Tiny should now have a bootloader on it, and you could
+Check for error messages. Your ATTiny should now have a bootloader on it, and you could
 try to upload a blink sketch to it if you want to make sure it works.
 
 Building and Programming
