@@ -45,7 +45,8 @@ const char PROGMEM CWCHARS[] =
      0B11000100}; //  37    Z    90   --..    4
 
 
-void cwSendText() {
+void cwSendText() 
+{
   const char *p = CWTEXT ;
   
   uint8_t ch ;
@@ -57,18 +58,16 @@ void cwSendText() {
   }
 }
 
-void cwSendCharacter(byte character) {
-  // Determine the CW character to send from the lookup table
-  byte cw = 0;
+void cwSendCharacter(byte character) 
+{
   uint8_t idx = 0 ;
+  
+  // Determine the CW character to send from the lookup table
   if (character >= (byte) '/' && character <= (byte) '9') {
-//    cw = CWCHARS[character - (byte) '/'];
     idx = character - (byte) '/' ;
   } else if (character >= (byte) 'A' && character <= (byte) 'Z') {
-//    cw = CWCHARS[character - (byte) 'A' + 12];
     idx = character - (byte) 'A' + 12 ;
   } else if (character == (byte) '=') {
-//    cw = CWCHARS[character - (byte) '=' + 11];
     idx = character - (byte) '=' + 11 ;
   } else if (character == (byte) '.') {
     // Period is 6 symbols so does not fit a byte
@@ -78,14 +77,15 @@ void cwSendCharacter(byte character) {
     cwSound (3, true);
     cwSound (1, true);
     cwSound (3, true);
-    // fall-trough? TODO: document or fix.
+    cwSound(3,false); // space between characters is one dah
+    return ;
   } else {
     // Space or any unrecognized char, silence.
     cwSound(4, false);
     return;
   }
 
-  cw = pgm_read_byte( CWCHARS[idx] );
+  byte cw = pgm_read_byte( CWCHARS[idx] );
 
   // Send the character from the CW table.
   byte nrsymbols = cw & 0B00000111;  
