@@ -6,8 +6,11 @@ to get it to transmit it on 1252MHz, and send out a CW (morse code) identifier o
 audio channels. The transmitter is a quick and simple solution for the annual Dutch
 Balloon Fox Hunt called [Landelijke Ballonvossenjacht](http://www.ballonvossenjacht.nl/)
 
-Information on how to build your own can be found in the [development guide](documentation/how-to-build.md).
-Datasheets of all the used hardware can be found in the [datasheets directory](documentation/datasheets).
+- The [development guide](documentation/how-to-build.md) gives you information on how to
+  build your own version of this project.
+- The [datasheets directory](documentation/datasheets) contains all the data sheets and
+  schematics I used to figure this out.
+- The antenna is a simple ![three element clover leaf antenna](documentation/cloverleaf.md).
 
 A brief timeline with notes and funny stories can be found in the [project diary](documentation/diary.md).
 I'll try to keep it updated with the latest info as much as possible.
