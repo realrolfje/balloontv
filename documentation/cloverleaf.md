@@ -25,7 +25,7 @@ The final version of the antenna has a PCB mounting point for the radials. This 
 capacity and throws the calculation of the resonant frequency off, but it was worth the
 struggle:
 
-![construction]](images/cloverleaf-construction.jpg)
+![construction](images/cloverleaf-construction.jpg)
 
 The end result is of course covered in epoxy resin to make it waterproof. The radials are
 made of regular copper wire. The wire was twisted with a hand drill compress the molecular
