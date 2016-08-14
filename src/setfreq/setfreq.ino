@@ -46,7 +46,7 @@
 const int ledPin   = 4; // D4 (pin 3)
 const int audioPin = 3; // D3 (pin 2)
 
-const char PROGMEM CWTEXT[] = "PI4RCG = WWW.BALLONVOSSENJACHT.NL";
+const char PROGMEM CWTEXT[] = "PI4RCG = WWW.BALLONVOSSENJACHT.NL = ";
 
 void setup() {
   pinMode(ledPin, OUTPUT);
@@ -58,7 +58,6 @@ void loop() {
   digitalWrite(ledPin, HIGH);
   setFrequency(1252000000L);
   digitalWrite(ledPin, LOW);
-  delay(1000);  
   cwSendText();
 }
 

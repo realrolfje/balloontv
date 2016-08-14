@@ -45,7 +45,7 @@ const char PROGMEM CWCHARS[] =
      0B11000100}; //  37    Z    90   --..    4
 
 
-void cwSendText() 
+void cwSendText()
 {
   const char *p = CWTEXT ;
   
