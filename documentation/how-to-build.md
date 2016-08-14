@@ -11,9 +11,9 @@ Prerequisites
   [I2C library for ATTiny](http://playground.arduino.cc/Code/USIi2c) installed in the
   libraries folder.
 - An [ATTiny](datasheets/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
-- An [Arduino UNO or Nano](https://www.arduino.cc/en/Main/GenuinoProducts) (for some reason
-  called "Genuino" by the Europe company branch, but don't worry, everybody calls it Arduino
-  and that will likely not change.
+- An [Arduino UNO or Nano](https://www.arduino.cc/en/Main/GenuinoProducts) (confusingly
+  called ["Genuino"](https://www.arduino.cc/en/Main/GenuinoBrand) by the Europe company
+  branch, but don't worry, everybody calls it Arduino, we're rebels, true to the original.
 
 Preparing your Arduino IDE
 --------------------------
