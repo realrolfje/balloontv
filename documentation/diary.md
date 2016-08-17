@@ -41,39 +41,19 @@ A list of funny notes and events of what happens on the project:
 - 12 Aug Simon applied a cool pull request for freeing up program space by storing the CW
   lookup table in program memory. The old version uses bytes (22%) of dynamic memory, and
   the change frees up 38 bytes and reduces usage to 78 bytes (15%) of dynamic memory.
+- 14 Aug Placed the ATTiny inside the comtech housing:
+  ![Comtech inside](images/comtech-with-attiny.jpg)
+  And added an external SPI connector:
+  ![Comtech SPI](images/comtech-with-attiny-spi.jpg)
+- 17 Aug A productive evening in Hilversum. Mischa brought the old 13cm ATV transmitter.
+  This transmitter was used for years in the ballon. The outside the solder was already
+  removed on this picture to open it:
+  ![13cm closed](images/13cm-atv-closed.jpg)
+  And this is the inside of that 13cm ATV transmitter:
+  ![13cm opened](images/13cm-atv-open.jpg)
+  Maarten brought a complete 23cm Power Amplifier of which we need to remove the housing
+  and cooling fan, and replace it with something more fitting (lighter and smaller).
+  ![23cm amplifier](images/23cm-amplifier-complete.jpg)
+- 18 Aug Measurements on the old 13cm ATV transmitter. Power usage is 500mA at 12V, and
+  it weighs 170 grams.
 
-
-# Notes
-
-Install ITTiny library into Arduino IDE from 
-code.google arduino-tiny
-
-In the IDE, load the  Arduino ISP sketch and upload it to an UNO.
-
-On the UNO, connect 10uF over reset/gnd. Then connect:
-- 5v to pin 8 of the ATTiny
-- GND to pin 4
-- pin 10 to pin 1 (reset)
-- pin 11 to pin 5
-- pin 12 to pin 6
-- pin 13 to pin 7
-
-In the Arduino IDE, select the attiny 8MHz as board.
-Select arduino as ISP as programmer.
-Burn boatloader onto the attiny.
-
-Check this video:
-https://www.youtube.com/watch?v=i9WOwDrpRKs
-
-Check high-low tech for board manager links
-http://highlowtech.org/?p=1695
-
-In Arduino 1.6.9, the board URLs are in the settings. Add the URL there. Then go to the board manager and install the attiny manager. Select Board ATTiny, Processor AT85 and clock 8MHz from the Tools menu in the IDE. The bottom right of the screen should now read "ATTiny 24/45/85, ATTiny85, Internal 8MHz on /dev/..."
-
-I2C library for ATtiny
-http://playground.arduino.cc/Code/USIi2c
-
-The I2C connections are pretty straight forward:
-    Arduino SDA <— 4.7k Resistor Tied to 5v —-> ATtiny 85 – PB0
-    Arduino SCL <— 4.7k Resistor Tied to 5v —-> ATtiny 85 – PB3
-    ATtiny 85 – PB1 <— 330 Resistor —- LED —- > GND
