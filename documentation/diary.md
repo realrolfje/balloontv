@@ -56,4 +56,33 @@ A list of funny notes and events of what happens on the project:
   ![23cm amplifier](images/23cm-amplifier-complete.jpg)
 - 18 Aug Measurements on the old 13cm ATV transmitter. Power usage is 500mA at 12V, and
   it weighs 170 grams.
-
+- 20 Aug Tool the 23cm PA to [Frank](http://pe3frx.nl/) to get it working and do some
+  measurements. It outputs well over 1 Watt, but it consumes over 1,5 Amp and the heatsink
+  gets very hot. The battery and the styrofoam of the balloon will not be happy. We tried
+  to get the old 13cm PA with the RF2126 working on 23cm. It produced 500mW before it
+  stopped working. It seems to get too hot outside its operating frequencies. We need a
+  new plan.
+- 22 Aug Frantic mailing and calling got me into contact with Frans PE1FOT, administrator
+  of [pa microwaves](http://www.pamicrowaves.nl). He had three [PD85004's](datasheets/pd85004.pdf)
+  which I picked up that same evening so that we can build the driver of
+  [G4BAO's 23cm PA](datasheets/driver_Build1_1.pdf) to use as 1 Watt PA. 
+- 23 Aug Milling, drilling and soldering resulted in this PA:
+  ![23cm PA handbrewed](images/23cm-PA-g4BAO-copy.jpg)
+  It oscillates like crazy at about 1220 MHz. Building the PA and fixing the oscillation
+  tool all evening, and we effectively got kicked out of the radio club. Home at 01:30 in
+  the morning.
+- 24 Aug Fixed the oscillation by adding more through-holes at the ground points and
+  between input and output circuits. Will measure and adjust output tomorrow.
+- 25 Aug  Oscillation re-appears, and fixed again by even more through-holes, and finally
+  got rid of it by connecting the drain to ground on the top side of the board as well as
+  the bottom side of the board.
+  Adjustments to the output circuit to get the power up resulted in 900mW output power and
+  a very warm PD85004, which gave up on us at the end of the evening. Luckily, I have two
+  spares but forgot to bring them with me.
+  ![Radio Club](images/23cm-pa-measurements.jpg)
+- 27 Aug Because I have good hope to get the PA working this Tuesday at the club, I 
+  started working on the housing, because we need that this week:
+  ![Start of housing](images/start-of-housing.jpg)
+  Just to be sure I am also adding some makeshift cooling so that the PD85004 can dissipate
+  its head more easily:
+  ![Cooling](images/PA-cooling.jpg)
