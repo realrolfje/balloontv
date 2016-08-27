@@ -84,5 +84,5 @@ A list of funny notes and events of what happens on the project:
   started working on the housing, because we need that this week:
   ![Start of housing](images/start-of-housing.jpg)
   Just to be sure I am also adding some makeshift cooling so that the PD85004 can dissipate
-  its head more easily:
+  its heat more easily:
   ![Cooling](images/PA-cooling.jpg)
