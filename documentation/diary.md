@@ -38,9 +38,10 @@ A list of funny notes and events of what happens on the project:
 - 31 july Fixed a few bugs in the code, burned it to the tiny and hooked it up to the
   SP5055 in the transmitter. Works like a charm. Next up: Couple the Audio for the CW
   into the left and right audio channels. Need to figure out what the level needs to be.
-- 12 Aug Simon applied a cool pull request for freeing up program space by storing the CW
-  lookup table in program memory. The old version uses bytes (22%) of dynamic memory, and
-  the change frees up 38 bytes and reduces usage to 78 bytes (15%) of dynamic memory.
+- 12 Aug [Simon](http://www.hamspirit.nl/mediawiki/index.php/Main_Page) applied a cool
+  pull request for freeing up program space by storing the CW lookup table in program
+  memory. The old version uses bytes (22%) of dynamic memory, and the change frees up
+  38 bytes and reduces usage to 78 bytes (15%) of dynamic memory.
 - 14 Aug Placed the ATTiny inside the comtech housing:
   ![Comtech inside](images/comtech-with-attiny.jpg)
   And added an external SPI connector:
