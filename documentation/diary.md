@@ -67,11 +67,12 @@ A list of funny notes and events of what happens on the project:
   of [pa microwaves](http://www.pamicrowaves.nl). He had three [PD85004's](datasheets/pd85004.pdf)
   which I picked up that same evening so that we can build the driver of
   [G4BAO's 23cm PA](datasheets/driver_Build1_1.pdf) to use as 1 Watt PA. 
-- 23 Aug Milling, drilling and soldering resulted in this PA:
+- 23 Aug Milling, drilling and soldering together with [Remco](http://remco.org/) resulted
+  in this PA:
   ![23cm PA handbrewed](images/23cm-PA-g4BAO-copy.jpg)
   It oscillates like crazy at about 1220 MHz. Building the PA and fixing the oscillation
-  tool all evening, and we effectively got kicked out of the radio club. Home at 01:30 in
-  the morning.
+  took all evening, and we effectively got kicked out of the radio club by Stan. Got home 
+  at 01:30 in the morning.
 - 24 Aug Fixed the oscillation by adding more through-holes at the ground points and
   between input and output circuits. Will measure and adjust output tomorrow.
 - 25 Aug  Oscillation re-appears, and fixed again by even more through-holes, and finally
@@ -87,3 +88,25 @@ A list of funny notes and events of what happens on the project:
   Just to be sure I am also adding some makeshift cooling so that the PD85004 can dissipate
   its heat more easily:
   ![Cooling](images/PA-cooling.jpg)
+- 30 Aug An evening of grinding down screw drivers to fit the tiny SMD 1.5 pF trimmers,
+  finding the right spot to place them, and fighting over which meter is the right one
+  to measure power with Hans PE1CKK and [Remco](http://remco.org/). We got the PA at 1 Watt...
+  no 1100 milliWatts because this one needs to go to 11 according to Remco, and left it
+  running for a good 40 minutes. It gets warm but it keeps working. Then we connected it
+  to the actual comtech video transmitter and adjusted the drive so it outputs 1100 
+  milliWatts again, and left it running for another 20 minutes or so.
+  Here's the whole transmitter inside the case, annotated to point out what's what:
+  ![Boxed in](images/boxed-in-text.jpg)
+- 31 Aug To make sure the cooling is okay, I've drilled two holes in the bottom of the case,
+  and use two pieces of a good size solid copper wire to transport heat from the PD85004
+  inside the housing to the copper outside of the housing, like so:
+  ![poor man's heatpipe](images/poor-mans-heatpipe.jpg)
+  After that I soldered the case shut to make it watertight, and left it running for another
+  5 minutes to check if it was still working and that the heat is indead transported to
+  the outside of the housing, which it is. So here it is, in all it's glory, closed up
+  and ready to go. It weighs 99 grams without antenna, 124 grams including antenna, runs
+  on 12V power, uses just under 400mA and generates a solid 1.1 Watt RF.
+  ![ready to go](images/ready-to-go.jpg)
+
+Thanks for all the help to Frank, Frans, Hans, Remco, Mischa, Maarten, Simon and all the
+people at the radio club. Let's see what the transmitter does at 30 km altitude...
