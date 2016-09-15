@@ -1,0 +1,25 @@
+De Ballonvossenjacht op je TV
+
+Vorig jaar deed ik voor het eerst mee aan de landelijke <a href="www.ballonvossenjacht.nl">ballonvossenjacht</a> met een geleende Fokzbox. De 100mW bakenzender op 145.450 MHz was goed te volgen, en we hadden lange tijd het gevoel een goede kans te maken. Doordat we ons vergisten in de daalsnelheid verloren het signaal een tijd uit het oog omdat de ballon tegen onze verwachting in al was geland. Maar we hebben er niet minder lol om gehad.
+
+In de grote oranje piepschuim bol onder de ballon zit niet alleen een bakenzender, maar ook een transponder (432.550 MHz in, 145.475 uit) en een TV zender die beelden van de on-board camera uitzendt. Agentschap Telecom heeft aangegeven dit jaar voor de TV zender geen plek te kunnen garanderen op 2330 MHz. Daarom werd besloten om de ATV zender te verhuizen naar de 23cm band.
+
+De nieuwe ATV zender zou, net als de oude, op basis van een voor velen wel bekende "Comtech blikje" moeten worden gebouwd. Voor de aansturing was wat programmeerwerk en een microcontroller nodig en toevallig zat ik tijdens die discussie aan de bar bij PI4RCG. Wat toen nog klonk als een simpel microcontrollertje ontaarde al snel in een iets groter project.
+
+Met hulp van leden van PI4RCG en daarbuiten werd een complete nieuwe ATV module samengesteld. De zender is een door Ton PE1BQE beschikbaar gesteld Comtech blikje. De stuurprint van het blikje is verwijderd en vervangen door een SMD AT Tiny 85 die via I2C de PLL aanstuurt, en middels CW op een audio kanaal voor de identificatie zorgt. Om de bescheiden 50 mW van het Comtech blikje wat te versterken werd er met hulp van Remco PA3FYM een eindtrap gebouwd op basis van een ontwerp van G4BAO. Hieronder de foto van het eindresultaat, vlak voor het waterdicht solderen van het kastje.
+
+[boxed-in-text.jpg, center, breed i.v.m. leesbaarheid tekst]
+
+Natuurlijk hoort er bij een nieuwe frequentie ook een nieuwe antenne. Vanwege het afstraalpatroon en de polarisatie werd er door het ballonteam de voorkeur gegeven aan een clover leaf antenne. Op basis van een ontwerp van Oscar Lang en met behulp van wat koperdraad werd een drie elements clover leaf gebouwd die uiteindelijk -29,7 dB reflectiedemping geeft precies op de geplande uitzendfrequentie van 1252 MHz. Omgerekend is -29,7 dB reflectie demping een VSWR van 1:067 een reflectie van slechts 0,1%. De zelfbouw antenne heeft daarmee twee commerciële drie- en vierblads clover leaf antennes overtuigend verslagen en mag van het uitzicht op 30km hoogte gaan genieten.
+
+Uiteindelijk resulteert dit project in een compacte ATV zender die inclusief antenne slechts 124 gram weegt, met een uitgangsvermogen van 1 Watt, en is te ontvangen met zowel een horizontaal, verticaal als rechts-circulair gepolariseerde antenne.
+
+[ready-to-go.jpg, kan links of rechts van de tekst in een kolom, kleiner formaat]
+
+[bold]
+Aanstaande zondag 11 September is het zover, dan kan iedereen weer gratis meedoen aan de jaarlijkse ballonvossenjacht. Voor nieuwtjes, meer informatie over de verzamelplaats en het verloop van de jacht ga je naar <a href="http://www.ballonvossenjacht.nl"/>www.ballonvossenjacht.nl</a>. Zendamateurs die liever thuis blijven kunnen het ATV signaal ontvangen op 1252 MHz, kijken naar de live stream op <a href="http://www.pi6hvs.nl/index.php/livestream/">PI6HVS</a>, gebruik maken van de transponder in de ballon voor het maken van een spraak verbinding, en/of de jacht volgen op PI2NOS op 430.125 MHz of op PI3UTR op 145.575 MHz. Veel plezier!
+[/bold]
+
+Met dank aan de indrukwekkende organisatie achter de landelijke ballonvossenjacht en alle mensen die hebben geholpen bij het bedenken, solderen, programmeren en afregelen van de nieuwe ATV zender. Meer informatie over, en foto's van de bouw van de ATV zender en de antenne is te vinden op https://github.com/realrolfje/balloontv
+
+Rolf, PE1PTP
