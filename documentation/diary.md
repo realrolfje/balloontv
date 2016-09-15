@@ -107,6 +107,16 @@ A list of funny notes and events of what happens on the project:
   and ready to go. It weighs 99 grams without antenna, 124 grams including antenna, runs
   on 12V power, uses just under 400mA and generates a solid 1.1 Watt RF.
   ![ready to go](images/ready-to-go.jpg)
+- 6 Sept Delivered the transmitter at the PI4RCG Radio Club so Maarten PE7M can take it from
+  there and put it in the styrofoam pod:
+  ![the pod](images/the-pod.jpg)
+- 9 Sept Maarten found a new, better camera, can't wait to see the images next Sunday.
+  _Game on!_
+- 15 Sept The ATV transmitter worked beautifully, and delivered some very nice images. A
+  still image from the video:
+  ![high altitude video](images/high-altitude-video.png)
+  The event was [live streamed on YouTube](https://www.youtube.com/watch?v=yOnsx4ngQHY),
+  including on-screen social media during the day and other video footage of the fox hunt.
 
 Thanks for all the help to Frank, Frans, Hans, Remco, Mischa, Maarten, Simon and all the
 people at the radio club. Let's see what the transmitter does at 30 km altitude...
