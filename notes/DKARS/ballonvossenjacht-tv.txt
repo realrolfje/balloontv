@@ -10,16 +10,24 @@ Met hulp van leden van PI4RCG en daarbuiten werd een complete nieuwe ATV module 
 
 [boxed-in-text.jpg, center, breed i.v.m. leesbaarheid tekst]
 
-Natuurlijk hoort er bij een nieuwe frequentie ook een nieuwe antenne. Vanwege het afstraalpatroon en de polarisatie werd er door het ballonteam de voorkeur gegeven aan een clover leaf antenne. Op basis van een ontwerp van Oscar Lang en met behulp van wat koperdraad werd een drie elements clover leaf gebouwd die uiteindelijk -29,7 dB reflectiedemping geeft precies op de geplande uitzendfrequentie van 1252 MHz. Omgerekend is -29,7 dB reflectie demping een VSWR van 1:067 een reflectie van slechts 0,1%. De zelfbouw antenne heeft daarmee twee commerciële drie- en vierblads clover leaf antennes overtuigend verslagen en mag van het uitzicht op 30km hoogte gaan genieten.
+Natuurlijk hoort er bij een nieuwe frequentie ook een nieuwe antenne. Vanwege het afstraalpatroon en de polarisatie werd er door het ballonteam de voorkeur gegeven aan een clover leaf antenne. Op basis van een ontwerp van Oscar Lang en met behulp van wat koperdraad werd een drie elements clover leaf gebouwd die uiteindelijk -29,7 dB reflectiedemping geeft precies op de geplande uitzendfrequentie van 1252 MHz. Omgerekend is -29,7 dB reflectie demping een VSWR van 1:067 een reflectie van slechts 0,1%. De zelfbouw antenne heeft daarmee twee commerciële drie- en vierblads clover leaf antennes overtuigend verslagen en mocht van het uitzicht op 30km hoogte gaan genieten.
 
-Uiteindelijk resulteert dit project in een compacte ATV zender die inclusief antenne slechts 124 gram weegt, met een uitgangsvermogen van 1 Watt, en is te ontvangen met zowel een horizontaal, verticaal als rechts-circulair gepolariseerde antenne.
+Uiteindelijk resulteerde dit project in een compacte ATV zender die inclusief antenne slechts 124 gram weegt, met een uitgangsvermogen van 1 Watt, en is te ontvangen met zowel een horizontaal, verticaal als rechts-circulair gepolariseerde antenne.
 
 [ready-to-go.jpg, kan links of rechts van de tekst in een kolom, kleiner formaat]
 
-[bold]
-Aanstaande zondag 11 September is het zover, dan kan iedereen weer gratis meedoen aan de jaarlijkse ballonvossenjacht. Voor nieuwtjes, meer informatie over de verzamelplaats en het verloop van de jacht ga je naar <a href="http://www.ballonvossenjacht.nl"/>www.ballonvossenjacht.nl</a>. Zendamateurs die liever thuis blijven kunnen het ATV signaal ontvangen op 1252 MHz, kijken naar de live stream op <a href="http://www.pi6hvs.nl/index.php/livestream/">PI6HVS</a>, gebruik maken van de transponder in de ballon voor het maken van een spraak verbinding, en/of de jacht volgen op PI2NOS op 430.125 MHz of op PI3UTR op 145.575 MHz. Veel plezier!
-[/bold]
+Op 11 September was het dan zover, de ballon werd opgelaten en leverde al vrij snel prachtige beelden. Alleen op grote hoogte vlak voordat de ballon kapte, gaf waarschijnlijk de PLL van de zender het op vanwege de lage temperatuur van rond de -50 graden Celcius. De ATTiny bleef wel werken, want Maarten vertelde dat in de volgauto te zien was dat de zender af en toe weer "op frequentie kwam". Dat zou verklaard kunnen worden door de software, die na een complete CW cycle de PLL van de zender reset. Hierdoor weten we zeker dat, mocht de zender om wat voor reden raar gaan doen, deze altijd op de juiste frequentie terugkomt.
 
-Met dank aan de indrukwekkende organisatie achter de landelijke ballonvossenjacht en alle mensen die hebben geholpen bij het bedenken, solderen, programmeren en afregelen van de nieuwe ATV zender. Meer informatie over, en foto's van de bouw van de ATV zender en de antenne is te vinden op https://github.com/realrolfje/balloontv
+Op grote hoogte (28 kilometer) was de kromming van de aarde zelfs prachtig te zien:
+
+[grote-hoogte.jpg, midden, groot, 
+ klikbaar, 
+ link naar: https://youtu.be/yOnsx4ngQHY?t=10021 (timestamp gaat direct naar de oplating)]
+
+Zoals vorig jaar deden we als equipe natuurlijk weer een poging om als eerste bij de ballon te zijn, of in ieder geval in de top 10 te eindigen. Dat lukte niet helemaal, we lieten ons erg leiden door de weersvoorspellingen en zaten aan de noordkant van de brug bij Harderwijk toen de ballon landde. Op het moment dat de zender op de grond ligt wordt het signaal zo zacht dat je echt niets ontvangt als je er dan niet heel dicht bij bent. Dat wisten we nog van vorig jaar, en dit jaar waren we dus weer niet dichtbij genoeg. We eindigden na geploeter uiteindelijk op de 38e plek, maar de dag was er niet minder gezellig om. Volgend jaar weer een kans.
+
+Ook meedoen? De ballonvossenjacht is een jaarlijks evenement dat op een zondag in September wordt gehouden. Voor de datum van volgend jaar, nieuwtjes, en andere informatie ga je naar <a href="http://www.ballonvossenjacht.nl"/>www.ballonvossenjacht.nl</a>. Ook voor amateurs die thuis blijven is er veel leuks, zo kun je het ATV signaal tijdens de jacht ontvangen op 1252 MHz, kijken naar live video streams op de site, gebruik maken van de transponder in de ballon voor het maken van een spraak verbinding, en/of de jacht volgen op PI2NOS op 430.125 MHz of op PI3UTR op 145.575 MHz.
+
+Met dank aan de indrukwekkende organisatie achter de jaarlijkse landelijke ballonvossenjacht en alle mensen die hebben geholpen bij het bedenken, solderen, programmeren en afregelen van de nieuwe ATV zender. Meer informatie over, en foto's van de bouw van de ATV zender en de antenne is te vinden op https://github.com/realrolfje/balloontv
 
 Rolf, PE1PTP
