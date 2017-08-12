@@ -14,7 +14,7 @@
  * 
  * Supported ATtiny commands:
  * pinMode()
- * digitalWrite()
+ * digitalWrite() 
  * digitalRead()
  * analogRead()
  * analogWrite()
@@ -52,12 +52,14 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(audioPin, OUTPUT);
   TinyWireM.begin();                    // initialize I2C lib
-}
 
-void loop() {
   digitalWrite(ledPin, HIGH);
   setFrequency(1252000000L);
   digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+
   cwSendText();
 }
 
@@ -114,7 +116,7 @@ void setFrequency(unsigned long ftx) {
   TinyWireM.send(dividerLSB);           // Programmable Divider LSB
                                         // bit 7 to 0: 2^7 to 2^0
 
-  TinyWireM.send(B10001110);           // Charge pump and test bits.
+  TinyWireM.send(B10001110);            // Charge pump and test bits.
                                         // bit 7: Always 1
                                         // bit 6: CP, Charge pump: 
                                         //        0 = 50uA

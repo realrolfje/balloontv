@@ -108,9 +108,9 @@ void cwSound(int dits, boolean on) {
   int periodcounter = ditperiods * dits;
   while (periodcounter > 0) {
     digitalWrite(audioPin, on ? HIGH : LOW);
-    delay(1);
+    delay(8);
     digitalWrite(audioPin, LOW);
-    delay(1);
+    delay(8);
     periodcounter--;
   }
   if (on) {
